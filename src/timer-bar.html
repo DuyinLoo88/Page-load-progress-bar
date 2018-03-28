@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>定时器实现网页加载进度条</title>
+</head>
+<style>
+	.loading {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		background: #fff;
+	}
+
+	.loading .pic {
+		width: 64px;
+		height: 64px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		background: url(../images/loading.gif);
+	}
+</style>
+<script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+<script>
+	// 使用定时器
+	$(function () {
+		setInterval(function () {
+			$(".loading").fadeOut();
+		}, 2000);
+	})
+</script>
+
+<body>
+	<!--使用定时器实现的网页加载进度条，可以解决一部分问题，但是对于如果有过缓存的网页就不再适合了。为了实现网页加载慢一些实现我们的效果，去网上找一些图。-->
+
+	<div class="loading">
+		<div class="pic"></div>
+	</div>
+
+	<img src="http://img5.imgtn.bdimg.com/it/u=2636137960,1836806477&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://img1.imgtn.bdimg.com/it/u=870404952,432605617&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://img0.imgtn.bdimg.com/it/u=1983968240,1065183412&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://img2.imgtn.bdimg.com/it/u=913116609,2915590841&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://g.hiphotos.baidu.com/image/pic/item/c995d143ad4bd113859d6fbc50afa40f4afb05e8.jpg" alt="">
+
+	<img src="http://img1.imgtn.bdimg.com/it/u=2922960417,2396372768&fm=200&gp=0.jpg" alt="">
+
+	<img src="http://imgsrc.baidu.com/forum/w=580/sign=021d7d730d2442a7ae0efdade142ad95/6b88fcc4b74543a91e6abd3c1c178a82b801145a.jpg"
+	 alt="">
+
+	<img src="http://img5.imgtn.bdimg.com/it/u=3890930946,3461673345&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://img5.imgtn.bdimg.com/it/u=1009423590,40288445&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://img1.imgtn.bdimg.com/it/u=1054795948,3119518287&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://img1.imgtn.bdimg.com/it/u=1776148376,3364183167&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://file01.16sucai.com/d/file/2013/1025/8e8639ac4fd90faac107be426f10c11a.jpg" alt="">
+
+	<img src="http://img5.imgtn.bdimg.com/it/u=1723310315,740738436&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://sc.jb51.net/uploads/allimg/141012/10-141012202351M1.jpg" alt="">
+
+	<img src="http://img0.imgtn.bdimg.com/it/u=2046985388,1631903128&fm=27&gp=0.jpg" alt="">
+
+	<img src="http://img5.duitang.com/uploads/item/201408/01/20140801224215_VNPR4.jpeg" alt="">
+</body>
+
+</html>
