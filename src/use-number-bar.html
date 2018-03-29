@@ -1,0 +1,118 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>数字显示加载进度条</title>
+	<style>
+		.loading {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 100;
+			background: #fff;
+		}
+
+		.pic {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			font-size: 30px;
+			line-height: 100px;
+			text-align: center;
+		}
+
+		.loading .pic span {
+			display: block;
+			width: 80px;
+			height: 80px;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			border-radius: 50%;
+			box-shadow: 0 3px 0 teal;
+			/*
+				animation:动画名、 时间、 infinite代表的是循环，周而复始的这个过程、 linear表示匀速
+			*/
+			-webkit-animation: num_rotate 1s infinite linear;
+			animation: num_rotate 1s infinite linear;
+		}
+
+		/* @keyframes 规则用于创建动画 */
+
+		@-webkit-keyframes num_rotate {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+
+		@keyframes num_rotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+	<script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+	<script>
+		$(function () {
+			// 这是定义图片时常用的方法 需要注意的是 img.src=""经常放在img.onload之后，是为了浏览器的缓存问题。
+			// var img = new Image();
+			// img.onload = function () {
+
+			// }
+			// img.src = "XXXX.jpg"; 
+
+			// 多张图片时的处理办法：
+
+			var img = $("img");
+			var num = 0;
+			img.each(function (i) {
+				var oImg = new Image();
+				oImg.onload = function () {
+					// 为了清除gif的重复请求
+					oImg.onload = null;
+					num++;
+					$(".loading b").html(parseInt(num / $("img").length * 100) + "%");
+					if (num >= img.length) {
+						$(".loading").fadeOut();
+					}
+				}
+				oImg.src = img[i].src;
+			})
+
+		})
+	</script>
+</head>
+
+<body>
+	<div class="loading">
+		<div class="pic">
+			<span></span>
+			<b>0%</b>
+		</div>
+	</div>
+	<img src="http://a.hiphotos.baidu.com/image/h%3D300/sign=a18b980dbd3533faeab6952e98d3fdca/9f510fb30f2442a76160eca6dd43ad4bd1130242.jpg"
+	 alt="">
+	<img src="http://a.hiphotos.baidu.com/image/h%3D300/sign=a18b980dbd3533faeab6952e98d3fdca/9f510fb30f2442a76160eca6dd43ad4bd1130242.jpg"
+	 alt="">
+	<img src="http://f.hiphotos.baidu.com/image/h%3D300/sign=54f0ba11d154564efa65e23983df9cde/80cb39dbb6fd5266cdb2ba16a718972bd4073612.jpg"
+	 alt="">
+	<img src="http://f.hiphotos.baidu.com/image/h%3D300/sign=4b625095bf1c8701c9b6b4e6177f9e6e/0d338744ebf81a4c341e02b8db2a6059252da697.jpg"
+	 alt="">
+</body>
+
+</html>
